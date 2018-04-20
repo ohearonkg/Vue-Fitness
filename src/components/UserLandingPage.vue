@@ -2,10 +2,7 @@
   <div class="user-landing-page">
     <h2> Welcome Back {{user.firstName}} </h2>
 
-    <div>
-      SOME GREAT INFO WILL GO HERE
-    </div>
-
+    <workout-preview />
     <h3> Recently... </h3>
 
     <div class="quick-facts__wrapper">
@@ -43,8 +40,12 @@
 </template>
 
 <script>
+import WorkoutPreview from "./WorkoutPreview";
 export default {
   name: "GettingStarted",
+  components: {
+    WorkoutPreview
+  },
   data: () => {
     return {
       user: {
