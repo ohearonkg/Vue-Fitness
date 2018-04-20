@@ -35,12 +35,12 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Open Sans", sans-serif;
   margin: -8px;
 }
 
 .app__content-container {
   padding: 10px;
-  text-align: center;
 }
 
 .app-shell__header-wrapper {

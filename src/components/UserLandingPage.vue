@@ -1,32 +1,40 @@
 <template>
-  <div>
+  <div class="user-landing-page">
     <h2> Welcome Back {{user.firstName}} </h2>
 
-    <div class="recently-logged__wrapper">
+    <div>
+      SOME GREAT INFO WILL GO HERE
+    </div>
 
+    <h3> Recently... </h3>
+
+    <div class="quick-facts__wrapper">
+      
       <!-- Recently Logged Workouts -->
-      <div class="recently-logged__column">
-        <div v-for="workout in recentlyLogged">
-          {{workout.name}} 
+      <div class="quick-facts__column">
+        <h4> Recent Workouts </h4>
+        <div class="quick-facts__fact" v-for="workout in recentlyLogged">
+          {{workout.name}} <br>
           {{workout.date.toDateString()}}
         </div>
       </div>
 
       <!-- Recent Maximums -->
-      <div class="recently-logged__column">
-        <div v-for="maximum in recordedMaxes">
-          {{maximum.exerciseName}} 
-          {{maximum.weight}}
-          {{maximum.date.toDateString()}}
+      <div class="quick-facts__column">
+        <h4> Latest Maxes </h4>
+        <div class="quick-facts__fact" v-for="maximum in recordedMaxes">
+          {{maximum.exerciseName}}: {{maximum.weight}} <br>
+          Recorded: {{maximum.date.toDateString()}}
           </div>
       </div>
 
       <!-- Goals -->
-      <div class="recently-logged__column">
-        <div v-for="goal in goals">
-          {{goal.text}} 
-          {{goal.progressPercent}}
-          {{goal.date.toDateString()}}
+      <div class="quick-facts__column">
+        <h4> Your Goals </h4>
+        <div class="quick-facts__fact" v-for="goal in goals">
+          {{goal.text}} <br>
+          {{goal.progressPercent}}% Complete <br>
+          Due Date: {{goal.date.toDateString()}}
         </div>
       </div>
 
@@ -84,12 +92,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.recently-logged__wrapper {
+.quick-facts__column {
+  font-family: "Montserrat", sans-serif;
+}
+.quick-facts__wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: row-wrap;
 }
-.recently-logged__column {
+.quick-facts__column {
+  background: rgba(200, 230, 250, 1);
   flex: 1 1 33.33%;
+  margin: 5px;
+  padding: 10px;
+}
+
+.quick-facts__column > h4 {
+  margin: 0;
+  padding: 5px 0;
+  line-height: 25px;
+}
+
+.quick-facts__fact {
+  padding: 10px 0;
 }
 </style>
