@@ -18,7 +18,9 @@
       </div>
 
       <!-- Actual Content Rendered Via Router --> 
+      <div class="app__content-container">
       <router-view/>
+      </div>
       
   </div>
 </template>
@@ -34,6 +36,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: -8px;
+}
+
+.app__content-container {
+  padding: 10px;
+  text-align: center;
 }
 
 .app-shell__header-wrapper {
