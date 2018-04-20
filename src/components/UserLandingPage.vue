@@ -106,6 +106,7 @@ export default {
   flex: 1 1 33.33%;
   margin: 5px;
   padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.73) 6px 10px 24px -5px;
 }
 
 .quick-facts__column > h4 {

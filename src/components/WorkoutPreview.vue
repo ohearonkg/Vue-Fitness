@@ -44,9 +44,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .workout-preview {
+  cursor: pointer;
   background: lavender;
   display: inline-block;
   padding: 10px;
+  transition: all 0.2s ease;
+  box-shadow: rgba(0, 0, 0, 0.73) 6px 10px 24px -5px;
 }
 
 .workout-preview__heading {
