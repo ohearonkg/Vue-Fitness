@@ -10,7 +10,7 @@
       <!-- Recently Logged Workouts -->
       <div class="quick-facts__column">
         <h4> Recent Workouts </h4>
-        <div class="quick-facts__fact" v-for="workout in recentlyLogged">
+        <div class="quick-facts__fact" v-for="workout in recentlyLogged" v-bind:key="workout.id">
           {{workout.name}} <br>
           {{workout.date.toDateString()}}
         </div>
@@ -19,7 +19,7 @@
       <!-- Recent Maximums -->
       <div class="quick-facts__column">
         <h4> Latest Maxes </h4>
-        <div class="quick-facts__fact" v-for="maximum in recordedMaxes">
+        <div class="quick-facts__fact" v-for="maximum in recordedMaxes" v-bind:key="maximum.id">
           {{maximum.exerciseName}}: {{maximum.weight}} <br>
           Recorded: {{maximum.date.toDateString()}}
           </div>
@@ -28,7 +28,7 @@
       <!-- Goals -->
       <div class="quick-facts__column">
         <h4> Your Goals </h4>
-        <div class="quick-facts__fact" v-for="goal in goals">
+        <div class="quick-facts__fact" v-for="goal in goals" v-bind:key="goal.id">
           {{goal.text}} <br>
           {{goal.progressPercent}}% Complete <br>
           Due Date: {{goal.date.toDateString()}}
@@ -54,21 +54,25 @@ export default {
       },
       recentlyLogged: [
         {
+          id: "1",
           name: "Back & Biceps",
           date: new Date()
         },
         {
+          id: "2",
           name: "Shoulder & Legs",
           date: new Date()
         }
       ],
       recordedMaxes: [
         {
+          id: "3",
           exerciseName: "Bench Press",
           weight: "105 lbs",
           date: new Date()
         },
         {
+          id: "4",
           exerciseName: "Back Squat",
           weight: "225 lbs",
           date: new Date()
@@ -76,11 +80,13 @@ export default {
       ],
       goals: [
         {
+          id: "5",
           text: "Run 45 min without stopping",
           progressPercent: 25,
           date: new Date()
         },
         {
+          id: "6",
           text: "5 Strict Pull Ups",
           progressPercent: 35,
           date: new Date()
@@ -99,8 +105,8 @@ export default {
 .quick-facts__wrapper {
   display: flex;
   flex-direction: row;
-  flex-wrap: row-wrap;
 }
+
 .quick-facts__column {
   background: rgba(200, 230, 250, 1);
   flex: 1 1 33.33%;

@@ -19,7 +19,7 @@
 
       <!-- Actual Content Rendered Via Router --> 
       <div class="app__content-container">
-      <router-view/>
+        <router-view/>
       </div>
       
   </div>

@@ -7,7 +7,7 @@
     </span>
 
     <div class="workout-preview__exercises-preview-wrapper">
-      <div class="workout-preview__exercise" v-for="exercise in exercises">
+      <div class="workout-preview__exercise" v-for="exercise in exercises" v-bind:key="exercise.id">
         Name: {{exercise.name}} <br>
         Sets: {{exercise.sets}}
       </div>
@@ -28,10 +28,12 @@ export default {
       estimatedTime: "65 min",
       exercises: [
         {
+          id: "a",
           name: "Leg Press",
           sets: "5 x 3"
         },
         {
+          id: "b",
           name: "Back Squat",
           sets: "5 x 3"
         }
@@ -52,6 +54,10 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.73) 6px 10px 24px -5px;
 }
 
+.workout-preview:hover {
+  transform: scale(1.05, 1.05);
+}
+
 .workout-preview__heading {
   font-size: 18px;
   font-weight: bold;
@@ -60,7 +66,6 @@ export default {
 .workout-preview__workout-name {
   font-weight: normal;
   display: inline-block;
-  border-bottom: 1px solid grey;
   margin-top: 5px;
 }
 
