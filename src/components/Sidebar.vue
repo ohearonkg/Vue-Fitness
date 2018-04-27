@@ -19,7 +19,7 @@
     <!-- List of Items -->
     <div class="sidebar__list-wrapper">
       <div class="sidebar__list-item" v-for="navItem in navItems" v-bind:key="navItem.id">
-        {{navItem.text}}
+        <router-link v-bind:to="navItem.location"> {{navItem.text}} </router-link>
        </div>
     </div>
 

@@ -44,10 +44,12 @@ export default {
       navigationItems: [
         {
           text: "Home",
+          location: "/",
           id: "1"
         },
         {
-          text: "Workouts",
+          text: "Calandar",
+          location: "/calandar",
           id: "2"
         }
       ]
