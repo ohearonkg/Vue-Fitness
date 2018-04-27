@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar" 
-    v-bind:class="{'sidebar--open' : this.$store.state.sidebarOpen, 'sidebar--closed' : !this.$store.state.sidebarOpen }">
+    v-bind:class="{'sidebar--open' : this.sidebarOpen, 'sidebar--closed' : !this.sidebarOpen }">
     <!-- Header Wrapper -->
     <div class="sidebar__header-wrapper">
 
@@ -30,21 +30,11 @@
 import { mapMutations } from "vuex";
 export default {
   name: "GettingStarted",
-  data: () => {
-    return {
-      navItems: [
-        {
-          id: "HomeNavItem",
-          text: "Home",
-          location: "/"
-        },
-        {
-          id: "ProfileNavItem",
-          text: "Profile",
-          location: "/profile"
-        }
-      ]
-    };
+  props: ["navItems"],
+  computed: {
+    sidebarOpen() {
+      return this.$store.state.sidebarOpen;
+    }
   },
   methods: {
     ...mapMutations(["toggleSidebar"])
