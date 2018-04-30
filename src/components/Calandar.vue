@@ -19,26 +19,40 @@
       </div>
 
       <!-- Days -->
-      <div class="calandar__day-wrapper" v-for="day in dayNumbers" v-bind:key="`dayNumber-${day}`">
-        <div class="calandar__day-number-wrapper">
-          {{day}}
-        </div> 
-        <div class="calandar__day-workout-name-wrapper">
-          Back And Biceps
-        </div>
-      </div>
+        <div 
+          class="calandar__day-wrapper" 
+          v-for="day in dayNumbers" 
+          v-bind:key="`dayNumber-${day}`"
+        >
 
+          <div class="calandar__day-number-wrapper">
+            {{day}}
+          </div> 
+          <div class="calandar__day-workout-name-wrapper">
+            Back And Biceps
+          </div>
+          <div class="calander__workout-information">
+            this workout is really great.
+          </div>
+
+        </div>
     </div>
+
+    <modal title="Push Day" dateCompleted="24 May 2018"/>
   </div>
 </template>
 
 <script>
+import Modal from "./Modal";
 const dayNumbers = [];
 for (let i = 1; i <= 31; i++) {
   dayNumbers.push(i);
 }
 export default {
   name: "Calandar",
+  components: {
+    Modal
+  },
   data() {
     return {
       daysOfWeek: [
@@ -83,7 +97,6 @@ export default {
   border: 1px solid black;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  height: 50vh;
 }
 
 .calandar__month-indicator-wrapper {
@@ -112,6 +125,8 @@ export default {
 
 .calandar__day-wrapper:hover {
   transform: scale(1.1);
+  box-shadow: -2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
 .calandar__day-name-wrapper {

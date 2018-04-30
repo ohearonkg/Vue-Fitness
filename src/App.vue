@@ -44,13 +44,18 @@ export default {
       navigationItems: [
         {
           text: "Home",
-          location: "/",
+          location: "/user",
           id: "1"
         },
         {
           text: "Calandar",
           location: "/calandar",
           id: "2"
+        },
+        {
+          text: "Logout",
+          location: "/",
+          id: "3"
         }
       ]
     };
