@@ -23,6 +23,7 @@
           class="calandar__day-wrapper" 
           v-for="day in dayNumbers" 
           v-bind:key="`dayNumber-${day}`"
+          @click="openModalFunction"
         >
 
           <div class="calandar__day-number-wrapper">
@@ -31,19 +32,18 @@
           <div class="calandar__day-workout-name-wrapper">
             Back And Biceps
           </div>
-          <div class="calander__workout-information">
-            this workout is really great.
-          </div>
-
         </div>
     </div>
 
-    <modal title="Push Day" dateCompleted="24 May 2018"/>
+    <!-- Modal To Show Data From Particular Day -->
+    <modal v-if="dayModalOpen" title="Push Day" dateCompleted="24 May 2018" v-bind:closeFunction="closeModalFunction"/>
   </div>
 </template>
 
 <script>
 import Modal from "./Modal";
+import { mapMutations } from "vuex";
+
 const dayNumbers = [];
 for (let i = 1; i <= 31; i++) {
   dayNumbers.push(i);
@@ -85,14 +85,24 @@ export default {
           key: 6
         }
       ],
-      dayNumbers
+      dayNumbers,
+      dayModalOpen: false
     };
+  },
+  methods: {
+    ...mapMutations(["toggleModalOpen"]),
+    openModalFunction() {
+      this.dayModalOpen = true;
+    },
+    closeModalFunction() {
+      this.dayModalOpen = false;
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .calandar__wrapper {
   border: 1px solid black;
   display: grid;
@@ -116,17 +126,19 @@ export default {
   text-align: center;
 }
 
-.calandar__day-wrapper {
-  border: 1px solid black;
-  cursor: pointer;
-  background: white;
-  transition: all 0.2s ease;
-}
+.calandar {
+  &__day-wrapper {
+    border: 1px solid black;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    background: white;
 
-.calandar__day-wrapper:hover {
-  transform: scale(1.1);
-  box-shadow: -2px 2px 4px 0 rgba(0, 0, 0, 0.3);
-  z-index: 1;
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: -2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+  }
 }
 
 .calandar__day-name-wrapper {
@@ -142,5 +154,15 @@ export default {
 .calandar__day-workout-name-wrapper {
   padding: 5px;
   display: block;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.75s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

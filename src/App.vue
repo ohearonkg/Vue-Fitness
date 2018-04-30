@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
 
       <!-- Header -->      
       <div class="app-shell__header-wrapper">
@@ -69,41 +69,43 @@ export default {
 };
 </script>
 
-<style>
-#app {
+<style lang="scss">
+.app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Open Sans", sans-serif;
   margin: -8px;
+
+  &__content-container {
+    padding: 10px;
+  }
 }
 
-.app__content-container {
-  padding: 10px;
-}
+.app-shell {
+  &__header-wrapper {
+    padding: 10px;
+    background-color: #007fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-.app-shell__header-wrapper {
-  padding: 10px;
-  background-color: #007fff;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+  &__icon-wrapper {
+    flex: 0 0 auto;
+  }
 
-.app-shell__icon-wrapper {
-  flex: 0 0 auto;
-}
+  &__title-wrapper {
+    flex: 1 1 auto;
+    text-align: center;
+  }
 
-.app-shell__title-wrapper {
-  flex: 1 1 auto;
-  text-align: center;
-}
+  &__hamburger-wrapper {
+    flex: 0 0 auto;
+    cursor: pointer;
+  }
 
-.app-shell__hamburger-wrapper {
-  flex: 0 0 auto;
-  cursor: pointer;
-}
-
-.app-shell__hamburger-wrapper:hover .app-shell__hamburger-icon {
-  fill: white;
+  &__hamburger-wrapper:hover &__hamburger-icon {
+    fill: white;
+  }
 }
 </style>
