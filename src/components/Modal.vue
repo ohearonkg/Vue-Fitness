@@ -202,8 +202,9 @@ export default {
 
   &__close-icon-wrapper {
     flex: 1 1 auto;
-    text-align: end;
     cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
   }
 
   &__close-icon {
