@@ -1,22 +1,24 @@
 <template>
   <div>
-    <h1> Getting Started </h1>
-    <p>
-      Enter your username and password below, or sign up to started
-      tracking!
-    </p>
-
     <div class="sign-in-form">
-      <input class="sign-in-form__input" placeholder="Username" />
-      <input class="sign-in-form__input" placeholder="Password" />
+      <h1> Login </h1>
+      <form>
+        <input class="sign-in-form__input" placeholder="Username" />
+        <input class="sign-in-form__input" placeholder="Password" />
+        <my-button text="Login" />
+      </form>
     </div>
-
   </div>
 </template>
 
 <script>
+import MyButton from "./MyButton";
+
 export default {
-  name: "GettingStarted"
+  name: "GettingStarted",
+  components: {
+    MyButton
+  } 
 };
 </script>
 
@@ -32,6 +34,10 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 100%;
+  background: #fff;
+  border: 1px solid gray;
+  padding: 10px 0;
+  margin: 0 0 10px;
 }
 
 .sign-in-form__input {
@@ -40,6 +46,9 @@ h1 {
   outline: none;
   border-bottom: 2px solid grey;
   transition: all 0.2s ease;
+  font-size: 1em;
+  overflow: hidden;
+  display: block;
 }
 
 .sign-in-form__input:focus {
