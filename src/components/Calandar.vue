@@ -1,7 +1,6 @@
 <template>
   <div class="calandar">
     <h1> Calander </h1>
-
     <div class="calandar__month-indicator-wrapper">
       <div class="calandar__month-arrow-wrapper"> Previous </div>
 
@@ -42,6 +41,7 @@
 
 <script>
 import Modal from "./Modal";
+import MyButton from "./MyButton";
 import { mapMutations } from "vuex";
 
 const dayNumbers = [];
@@ -51,7 +51,8 @@ for (let i = 1; i <= 31; i++) {
 export default {
   name: "Calandar",
   components: {
-    Modal
+    Modal,
+    MyButton
   },
   data() {
     return {
