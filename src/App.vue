@@ -5,10 +5,10 @@
       <div class="app-shell__header-wrapper">
 
         <!-- Icon -->
-        <div class="app-shell__icon-wrapper"> KGSM ICON </div>
+        <div class="app-shell__icon-wrapper"> </div>
 
         <!-- Title -->
-        <div class="app-shell__title-wrapper">KGSM Fitness Tracker</div>
+        <div class="app-shell__title-wrapper">VueFIT</div>
 
         <!-- Hamburger -->
         <div class="app-shell__hamburger-wrapper" v-on:click="toggleSidebar"> 
@@ -70,11 +70,17 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+
 .app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Open Sans", sans-serif;
-  margin: -8px;
 
   &__content-container {
     padding: 10px;
@@ -97,6 +103,7 @@ export default {
   &__title-wrapper {
     flex: 1 1 auto;
     text-align: center;
+    font-size: 2em;
   }
 
   &__hamburger-wrapper {

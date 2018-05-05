@@ -13,8 +13,12 @@ export default {
 
  <style lang="scss" scoped>
     .button {
-        padding: 5px;
-        border: 1px solid black;
+        padding: 10px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-size: 1em;
+        width: 100%;
+        margin-top: 10px;
 
         &--warning {
             background: orange;
@@ -27,5 +31,9 @@ export default {
         &--success {
             background: green;
         }
+    }
+
+    .button:hover {
+        background: #eee;
     }
 </style>
