@@ -13,7 +13,8 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
-    "server": "node server.js"
+    "server": "node server.js",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
     "express": "^4.16.3",
@@ -23,6 +24,7 @@
     "yarn": "^1.6.0"
   },
   "devDependencies": {
+    "@storybook/vue": "^3.4.3",
     "@vue/test-utils": "^1.0.0-beta.14",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
