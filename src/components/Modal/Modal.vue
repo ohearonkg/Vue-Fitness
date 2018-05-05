@@ -8,7 +8,13 @@
 
         <!-- Title And Date Completed -->
         <div class="modal__workout-information-wrapper">
-          <span class="modal__title">{{title}} </span>
+
+          <!-- Title or Loading Grey Bar -->
+          <div v-if="loading" class="modal__loading-title"></div>
+          <span v-else class="modal__title"> {{title}} </span>
+
+          <!-- Date Completed or loading grey bar -->
+          <div v-if="loading" class="modal__loading-date-completed"></div>
           <span class="modal__date-completed">{{dateCompleted}}</span>
         </div>
 
@@ -53,7 +59,7 @@
 <script>
 export default {
   name: "Modal",
-  props: ["title", "dateCompleted", "closeFunction"],
+  props: ["title", "dateCompleted", "closeFunction", "loading"],
   data: () => {
     return {
       exerciseData: [
@@ -173,6 +179,17 @@ export default {
    }
 } 
 
+@keyframes loadContent {
+  0% {
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .modal {
   position: fixed;
   top: 0;
@@ -207,12 +224,29 @@ export default {
   &__title {
     font-size: 24px;
     display: block;
+    margin-bottom: 5px;
+  }
+
+  &__loading-title{
+    margin-bottom: 5px;
+    height: 27.6px;
+    width: 200px;
+    background-color: rgb(217, 217, 217);
+    animation: loadContent 1.75s ease infinite;
   }
 
   &__date-completed {
     font-size: 16px;
     display: block;
   }
+
+  &__loading-date-completed{
+    height: 27.6px;
+    width: 100px;
+    background-color: rgb(217, 217, 217);
+    animation: loadContent 1.75s ease infinite;
+  }
+
 
   &__close-icon-wrapper {
     flex: 1 1 auto;
