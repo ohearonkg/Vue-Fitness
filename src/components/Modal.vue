@@ -155,12 +155,24 @@ export default {
         }
       ]
     };
-  }
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+@keyframes fadeInFromTop {
+   0% {
+      opacity: 0;
+      transform: translateY(-40px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+} 
+
 .modal {
   position: fixed;
   top: 0;
@@ -177,6 +189,8 @@ export default {
     margin: 15% auto;
     width: 80%;
     padding: 20px;
+    animation: fadeInFromTop 0.4s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+
   }
 
   &__header-wrapper {
@@ -226,13 +240,5 @@ export default {
   &__exercise-entry {
     display: block;
   }
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>
