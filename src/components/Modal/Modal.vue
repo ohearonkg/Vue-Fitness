@@ -10,11 +10,11 @@
         <div class="modal__workout-information-wrapper">
 
           <!-- Title or Loading Grey Bar -->
-          <div v-if="loading" class="modal__loading-title"></div>
+          <div v-if="loading" class="modal__title modal__title--loading"></div>
           <span v-else class="modal__title"> {{title}} </span>
 
           <!-- Date Completed or loading grey bar -->
-          <div v-if="loading" class="modal__loading-date-completed"></div>
+          <div v-if="loading" class="modal__date-completed modal__date-completed--loading"></div>
           <span v-else class="modal__date-completed">{{dateCompleted}}</span>
         </div>
 
@@ -213,7 +213,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 @keyframes fadeInFromTop {
    0% {
       opacity: 0;
@@ -235,6 +234,11 @@ export default {
   100% {
     opacity: 1;
   }
+}
+
+@mixin loadAnimation {
+  background-color: rgb(217, 217, 217);
+  animation: loadContent 1.75s ease infinite;
 }
 
 .modal {
@@ -272,26 +276,23 @@ export default {
     display: block;
     font-size: 24px;
     margin-bottom: 5px;
-  }
 
-  &__loading-title{
-    margin-bottom: 5px;
-    height: 27.6px;
-    width: 200px;
-    background-color: rgb(217, 217, 217);
-    animation: loadContent 1.75s ease infinite;
+    &--loading {
+      height: 27.6px;
+      width: 200px;
+      @include loadAnimation();
+    }
   }
 
   &__date-completed {
     font-size: 16px;
     display: block;
-  }
 
-  &__loading-date-completed{
-    height: 27.6px;
-    width: 100px;
-    background-color: rgb(217, 217, 217);
-    animation: loadContent 1.75s ease infinite;
+    &--loading {
+      height: 27.6px;
+      width: 100px;
+      @include loadAnimation();
+    }
   }
 
 
@@ -319,10 +320,9 @@ export default {
     display: block;
 
     &--loading {
-      background-color: rgb(217, 217, 217);
-      animation: loadContent 1.75s ease infinite;
       width: 100px;
       height: 20px;
+      @include loadAnimation();
     }
   }
 
@@ -333,8 +333,7 @@ export default {
     &--loading {
       width: 125px;
       height: 15px;
-      background-color: rgb(217, 217, 217);
-      animation: loadContent 1.75s ease infinite;
+      @include loadAnimation();
     }
   }
 }
