@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import GettingStarted from '@/components/GettingStarted';
 import UserLandingPage from '@/components/UserLandingPage';
 import Calandar from '@/components/Calandar';
-import Modal from '@/components/Modal';
+import Modal from '@/components/Modal/Modal';
 
 Vue.use(Router);
 

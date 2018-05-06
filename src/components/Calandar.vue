@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import Modal from "./Modal";
-import MyButton from "./MyButton";
+import Modal from "./Modal/Modal";
+import MyButton from "./MyButton/MyButton";
 import { mapMutations } from "vuex";
 
 const dayNumbers = [];
