@@ -15,7 +15,7 @@
 
           <!-- Date Completed or loading grey bar -->
           <div v-if="loading" class="modal__loading-date-completed"></div>
-          <span class="modal__date-completed">{{dateCompleted}}</span>
+          <span v-else class="modal__date-completed">{{dateCompleted}}</span>
         </div>
 
         <!-- Close Icon -->
@@ -30,10 +30,56 @@
       <!-- Content -->
       <div class="modal__inner-content-wrapper">
 
-        <!-- Exercise Records -->
         <div class="modal__exercise-records-wrapper">
-          
-          <div class="modal__exercise-record-wrapper" v-for="exercise in exerciseData" v-bind:key="exercise.id">
+
+          <!-- Loading Exercise Records -->
+          <div v-if="loading" class="modal__exercise-record-wrapper">
+            <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
+            <div class="modal__exercise-entries-wrapper">
+              <div class="modal__exercise-entry-wrapper">
+                <span class="modal__exercise-entry-loading"></span>
+                <span class="modal__exercise-entry-loading"></span>
+                <span class="modal__exercise-entry-loading"></span>
+              </div>
+            </div>
+          </div>          
+
+          <div v-if="loading" class="modal__exercise-record-wrapper">
+            <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
+            <div class="modal__exercise-entries-wrapper">
+              <div class="modal__exercise-entry-wrapper">
+                <span class="modal__exercise-entry-loading"></span>
+                <span class="modal__exercise-entry-loading"></span>
+                <span class="modal__exercise-entry-loading"></span>
+              </div>
+            </div>
+          </div>          
+
+          <div v-if="loading" class="modal__exercise-record-wrapper">
+            <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
+            <div class="modal__exercise-entries-wrapper">
+              <div class="modal__exercise-entry-wrapper">
+                  <span class="modal__exercise-entry-loading"></span>
+                  <span class="modal__exercise-entry-loading"></span>
+                  <span class="modal__exercise-entry-loading"></span>
+              </div>
+            </div>
+          </div>          
+
+          <div v-if="loading" class="modal__exercise-record-wrapper">
+            <span class="modal__exercise-entry-name--loading"></span>
+            <div class="modal__exercise-entries-wrapper">
+              <div class="modal__exercise-entry-wrapper">
+                  <span class="modal__exercise-entry-loading"></span>
+                  <span class="modal__exercise-entry-loading"></span>
+                  <span class="modal__exercise-entry-loading"></span>
+              </div>
+            </div>
+          </div>          
+
+
+          <!-- Actual Data -->
+          <div v-if="!loading" class="modal__exercise-record-wrapper" v-for="exercise in exerciseData" v-bind:key="exercise.id">
 
             <!-- Name -->
             <span class="modal__exercise-entry-name"> {{exercise.exerciseName}} </span>
@@ -190,6 +236,7 @@ export default {
     opacity: 1;
   }
 }
+
 .modal {
   position: fixed;
   top: 0;
@@ -222,8 +269,8 @@ export default {
   }
 
   &__title {
-    font-size: 24px;
     display: block;
+    font-size: 24px;
     margin-bottom: 5px;
   }
 
@@ -269,10 +316,28 @@ export default {
   &__exercise-entry-name {
     font-size: 16px;
     font-weight: bold;
+    display: block;
+
+    &--loading {
+      background-color: rgb(217, 217, 217);
+      animation: loadContent 1.75s ease infinite;
+      width: 100px;
+      height: 20px;
+    }
+  }
+
+  &__exercise-entry-loading {
+    width: 125px;
+    height: 15px;
+    display: block;
+    background-color: rgb(217, 217, 217);
+    margin-top: 5px;
+    animation: loadContent 1.75s ease infinite;
   }
 
   &__exercise-entry {
     display: block;
+    margin-top: 5px;
   }
 }
 </style>
