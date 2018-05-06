@@ -37,9 +37,9 @@
             <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
             <div class="modal__exercise-entries-wrapper">
               <div class="modal__exercise-entry-wrapper">
-                <span class="modal__exercise-entry-loading"></span>
-                <span class="modal__exercise-entry-loading"></span>
-                <span class="modal__exercise-entry-loading"></span>
+                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
               </div>
             </div>
           </div>          
@@ -48,9 +48,9 @@
             <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
             <div class="modal__exercise-entries-wrapper">
               <div class="modal__exercise-entry-wrapper">
-                <span class="modal__exercise-entry-loading"></span>
-                <span class="modal__exercise-entry-loading"></span>
-                <span class="modal__exercise-entry-loading"></span>
+                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
               </div>
             </div>
           </div>          
@@ -59,9 +59,9 @@
             <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
             <div class="modal__exercise-entries-wrapper">
               <div class="modal__exercise-entry-wrapper">
-                  <span class="modal__exercise-entry-loading"></span>
-                  <span class="modal__exercise-entry-loading"></span>
-                  <span class="modal__exercise-entry-loading"></span>
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
               </div>
             </div>
           </div>          
@@ -70,9 +70,9 @@
             <span class="modal__exercise-entry-name--loading"></span>
             <div class="modal__exercise-entries-wrapper">
               <div class="modal__exercise-entry-wrapper">
-                  <span class="modal__exercise-entry-loading"></span>
-                  <span class="modal__exercise-entry-loading"></span>
-                  <span class="modal__exercise-entry-loading"></span>
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
               </div>
             </div>
           </div>          
@@ -326,18 +326,16 @@ export default {
     }
   }
 
-  &__exercise-entry-loading {
-    width: 125px;
-    height: 15px;
-    display: block;
-    background-color: rgb(217, 217, 217);
-    margin-top: 5px;
-    animation: loadContent 1.75s ease infinite;
-  }
-
   &__exercise-entry {
     display: block;
     margin-top: 5px;
+
+    &--loading {
+      width: 125px;
+      height: 15px;
+      background-color: rgb(217, 217, 217);
+      animation: loadContent 1.75s ease infinite;
+    }
   }
 }
 </style>
