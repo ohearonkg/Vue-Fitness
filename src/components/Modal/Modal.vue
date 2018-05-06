@@ -10,12 +10,16 @@
         <div class="modal__workout-information-wrapper">
 
           <!-- Title or Loading Grey Bar -->
-          <div v-if="loading" class="modal__title modal__title--loading"></div>
-          <span v-if="!loading" class="modal__title"> {{title}} </span>
+          <transition name="fade" mode="out-in">
+            <div v-if="loading" class="modal__title modal__title--loading"></div>
+            <span v-else class="modal__title"> {{title}} </span>
+          </transition>
 
           <!-- Date Completed Or Loading Grey Bar -->
-          <div v-if="loading" class="modal__date-completed modal__date-completed--loading"></div>
-          <span v-if="!loading" class="modal__date-completed">{{dateCompleted}}</span>
+          <transition name="fade" mode="out-in">
+            <div v-if="loading" class="modal__date-completed modal__date-completed--loading"></div>
+            <span v-else class="modal__date-completed">{{dateCompleted}}</span>
+          </transition>
 
         </div>
 
@@ -219,11 +223,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-/** Fading In ONLY **/
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 4s;
+/** Fading Out The Grey Container */
+.fade-leave-active {
+   transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+/** Fading In The Actual Content **/
+.fade-enter-active {
+  transition: all 0.2s ease;
+}
+
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 
@@ -252,7 +262,7 @@ export default {
 
 @mixin loadAnimation {
   background-color: rgb(217, 217, 217);
-  animation: loadContent 1.75s ease infinite;
+  // animation: loadContent 1.75s ease infinite;
 }
 
 .modal {
@@ -303,7 +313,7 @@ export default {
     display: block;
 
     &--loading {
-      height: 27.6px;
+      height: 18.5px;
       width: 100px;
       @include loadAnimation();
     }
