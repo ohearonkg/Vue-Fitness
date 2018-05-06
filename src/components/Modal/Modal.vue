@@ -11,11 +11,12 @@
 
           <!-- Title or Loading Grey Bar -->
           <div v-if="loading" class="modal__title modal__title--loading"></div>
-          <span v-else class="modal__title"> {{title}} </span>
+          <span v-if="!loading" class="modal__title"> {{title}} </span>
 
-          <!-- Date Completed or loading grey bar -->
+          <!-- Date Completed Or Loading Grey Bar -->
           <div v-if="loading" class="modal__date-completed modal__date-completed--loading"></div>
-          <span v-else class="modal__date-completed">{{dateCompleted}}</span>
+          <span v-if="!loading" class="modal__date-completed">{{dateCompleted}}</span>
+
         </div>
 
         <!-- Close Icon -->
@@ -67,7 +68,7 @@
           </div>          
 
           <div v-if="loading" class="modal__exercise-record-wrapper">
-            <span class="modal__exercise-entry-name--loading"></span>
+            <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
             <div class="modal__exercise-entries-wrapper">
               <div class="modal__exercise-entry-wrapper">
                   <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
@@ -82,17 +83,18 @@
           <div v-if="!loading" class="modal__exercise-record-wrapper" v-for="exercise in exerciseData" v-bind:key="exercise.id">
 
             <!-- Name -->
-            <span class="modal__exercise-entry-name"> {{exercise.exerciseName}} </span>
+            <transition name="fade">
+              <span class="modal__exercise-entry-name"> {{exercise.exerciseName}} </span>
+            </transition>
 
             <!-- Sets Information -->
             <div class="modal__exercise-entries-wrapper">
               <div class="modal__exercise-entry-wrapper" v-for="(entry,index) in exercise.data" v-bind:key="entry.id">
-                <span class="modal__exercise-entry"> Set {{index + 1}}: {{entry.reps}} x {{entry.weight}} {{entry.weightType}}</span>
+                  <span class="modal__exercise-entry"> Set {{index + 1}}: {{entry.reps}} x {{entry.weight}} {{entry.weightType}}</span>
               </div>
             </div>
-            
           </div> 
-          
+        
         </div> 
         
       </div>  
@@ -105,6 +107,9 @@
 <script>
 export default {
   name: "Modal",
+  mounted: function() {
+    setTimeout( () => {this.loading = false; this.title="Push Day", this.dateCompleted="May 27 2018"}, 1500)
+  },
   props: ["title", "dateCompleted", "closeFunction", "loading"],
   data: () => {
     return {
@@ -213,6 +218,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+/** Fading In ONLY **/
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 4s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 @keyframes fadeInFromTop {
    0% {
       opacity: 0;

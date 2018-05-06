@@ -35,7 +35,7 @@
     </div>
 
     <!-- Modal To Show Data From Particular Day -->
-    <modal v-if="dayModalOpen" title="Push Day" dateCompleted="24 May 2018" v-bind:closeFunction="closeModalFunction"/>
+    <modal v-if="dayModalOpen" v-bind:closeFunction="closeModalFunction" loading="true"/>
   </div>
 </template>
 
