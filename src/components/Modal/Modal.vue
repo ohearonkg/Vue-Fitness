@@ -35,77 +35,86 @@
       <!-- Content -->
       <div class="modal__inner-content-wrapper">
 
-        <div class="modal__exercise-records-wrapper">
-
+        <transition name="fade" mode="out-in">
+          
           <!-- Loading Exercise Records -->
-          <div v-if="loading" class="modal__exercise-record-wrapper">
-            <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
-            <div class="modal__exercise-entries-wrapper">
-              <div class="modal__exercise-entry-wrapper">
-                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
-                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
-                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
-              </div>
-            </div>
-          </div>          
+          <div v-if="loading" class="modal__exercise-records-wrapper" key="loading">
 
-          <div v-if="loading" class="modal__exercise-record-wrapper">
-            <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
-            <div class="modal__exercise-entries-wrapper">
-              <div class="modal__exercise-entry-wrapper">
-                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
-                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
-                <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+            <div class="modal__exercise-record-wrapper">
+              <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
+              <div class="modal__exercise-entries-wrapper">
+                <div class="modal__exercise-entry-wrapper">
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                </div>
               </div>
-            </div>
-          </div>          
+            </div>          
 
-          <div v-if="loading" class="modal__exercise-record-wrapper">
-            <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
-            <div class="modal__exercise-entries-wrapper">
-              <div class="modal__exercise-entry-wrapper">
+            <div class="modal__exercise-record-wrapper">
+              <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
+              <div class="modal__exercise-entries-wrapper">
+                <div class="modal__exercise-entry-wrapper">
                   <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
                   <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
                   <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                </div>
               </div>
-            </div>
-          </div>          
+            </div>          
 
-          <div v-if="loading" class="modal__exercise-record-wrapper">
-            <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
-            <div class="modal__exercise-entries-wrapper">
-              <div class="modal__exercise-entry-wrapper">
-                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
-                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
-                  <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+            <div class="modal__exercise-record-wrapper">
+              <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
+              <div class="modal__exercise-entries-wrapper">
+                <div class="modal__exercise-entry-wrapper">
+                    <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                    <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                    <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                </div>
               </div>
-            </div>
-          </div>          
+            </div>          
 
+            <div class="modal__exercise-record-wrapper">
+              <span class="modal__exercise-entry-name modal__exercise-entry-name--loading"></span>
+              <div class="modal__exercise-entries-wrapper">
+                <div class="modal__exercise-entry-wrapper">
+                    <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                    <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                    <span class="modal__exercise-entry modal__exercise-entry--loading"></span>
+                </div>
+              </div>
+            </div>          
+
+          </div>
+
+          
 
           <!-- Actual Data -->
-          <div v-if="!loading" class="modal__exercise-record-wrapper" v-for="exercise in exerciseData" v-bind:key="exercise.id">
+          <div v-else class="modal__exercise-records-wrapper" key="actual-data">
 
-            <!-- Name -->
-            <transition name="fade">
+            <div class="modal__exercise-record-wrapper" v-for="exercise in exerciseData" v-bind:key="exercise.id">
+
+              <!-- Name -->
               <span class="modal__exercise-entry-name"> {{exercise.exerciseName}} </span>
-            </transition>
 
-            <!-- Sets Information -->
-            <div class="modal__exercise-entries-wrapper">
-              <div class="modal__exercise-entry-wrapper" v-for="(entry,index) in exercise.data" v-bind:key="entry.id">
-                  <span class="modal__exercise-entry"> Set {{index + 1}}: {{entry.reps}} x {{entry.weight}} {{entry.weightType}}</span>
+              <!-- Sets Information -->
+              <div class="modal__exercise-entries-wrapper">
+                  <div class="modal__exercise-entry" v-for="(entry,index) in exercise.data" v-bind:key="entry.id">
+                      <span class="modal__exercise-entry"> Set {{index + 1}}: {{entry.reps}} x {{entry.weight}} {{entry.weightType}}</span>
+                  </div>
               </div>
+
             </div>
-          </div> 
+
+          </div>
+
+        </transition>
+
+      </div> 
         
-        </div> 
-        
-      </div>  
-      
     </div>
     
   </div>
+
 </template>
 
 <script>
@@ -345,7 +354,7 @@ export default {
 
     &--loading {
       width: 100px;
-      height: 20px;
+      height: 18.5px;
       @include loadAnimation();
     }
   }
@@ -356,7 +365,7 @@ export default {
 
     &--loading {
       width: 125px;
-      height: 15px;
+      height: 18.5px;
       @include loadAnimation();
     }
   }
