@@ -235,6 +235,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@font-face {
+  font-family: "OpenSans";
+  src: url('../../assets/fonts/Open_Sans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: "OpenSansSemiBold";
+  src: url('../../assets/fonts/Open_Sans/OpenSans-SemiBold.ttf');
+  font-weight: 600;
+}
 
 /** Fading Out The Grey Container */
 .fade-leave-active {
@@ -299,7 +309,7 @@ export default {
   }
 
   &__header-wrapper {
-    padding-bottom: 15px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -310,11 +320,13 @@ export default {
   }
 
   &__title {
+    font-family: "OpenSans";
     display: block;
     font-size: 24px;
-    margin-bottom: 5px;
+    margin-bottom: -2.5px;
 
     &--loading {
+      margin-bottom: 2.5px;
       height: 27.6px;
       width: 200px;
       @include loadAnimation();
@@ -322,11 +334,11 @@ export default {
   }
 
   &__date-completed {
-    font-size: 16px;
-    display: block;
+    font-family: "OpenSans";
+    font-size: 13px;
 
     &--loading {
-      height: 18.5px;
+      height: 18px;
       width: 100px;
       @include loadAnimation();
     }
@@ -352,11 +364,12 @@ export default {
   }
 
   &__exercise-entry-name {
+    font-family: "OpenSansSemiBold";
     font-size: 16px;
-    font-weight: bold;
     display: block;
 
     &--loading {
+      margin-bottom: 5px;
       width: 100px;
       height: 18.5px;
       @include loadAnimation();
@@ -365,7 +378,9 @@ export default {
 
   &__exercise-entry {
     display: block;
-    margin-top: 5px;
+    margin-top: 2.5px;
+    font-family: "OpenSans";
+    font-size: 14px;
 
     &--loading {
       width: 125px;
