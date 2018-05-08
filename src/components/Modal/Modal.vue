@@ -11,13 +11,17 @@
 
           <!-- Title or Loading Grey Bar -->
           <transition name="fade" mode="out-in">
-            <div v-if="loading" class="modal__title modal__title--loading"></div>
+            <div v-if="loading">
+              <span class="modal__title modal__title--loading" />
+            </div>
             <span v-else class="modal__title"> {{title}} </span>
           </transition>
 
           <!-- Date Completed Or Loading Grey Bar -->
           <transition name="fade" mode="out-in">
-            <div v-if="loading" class="modal__date-completed modal__date-completed--loading"></div>
+            <div v-if="loading">
+              <div class="modal__date-completed modal__date-completed--loading"/>
+            </div>
             <span v-else class="modal__date-completed">{{dateCompleted}}</span>
           </transition>
 
@@ -271,7 +275,7 @@ export default {
 
 @mixin loadAnimation {
   background-color: rgb(217, 217, 217);
-  // animation: loadContent 1.75s ease infinite;
+  animation: loadContent 1.75s ease infinite;
 }
 
 .modal {
