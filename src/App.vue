@@ -56,6 +56,11 @@ export default {
           text: "Logout",
           location: "/",
           id: "3"
+        },
+        {
+          text: "Exercises",
+          location: "/exercises",
+          id: "4"
         }
       ]
     };

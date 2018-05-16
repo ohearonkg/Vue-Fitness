@@ -1,14 +1,16 @@
 <template>
   <ul class="category-list">
-    <li class="category-list__list-item" v-for="category in categoryItems" v-bind:key="category.id">
-      <div class="category-list__item-text-wrapper">
-        {{category.name}}
-      </div>
-      <div class="category-list__chevron-wrapper">
-        <svg class="category-list__cheveron" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z"/>
-        </svg>
-      </div>
+    <li class="category-list__list-item" v-for="category in categoryItems" v-bind:key="category.id"> 
+      <router-link class="category-list__list-content-wrapper" :to="`/exercise/${category.id}`" tag="div" >
+        <div class="category-list__item-text-wrapper">
+          {{category.name}}
+        </div>
+        <div class="category-list__chevron-wrapper">
+          <svg class="category-list__cheveron" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z"/>
+          </svg>
+        </div>
+      </router-link>
     </li>
   </ul>
 </template>
@@ -50,9 +52,6 @@ export default {
       border-bottom: 2px solid white;
       cursor: pointer;
       transition: all 0.2s ease;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
 
       &:hover {
         background-color: rgb(190, 190, 190);
@@ -63,6 +62,12 @@ export default {
           animation: arrowMove 0.5s ease-in-out infinite 0.1s alternate;
         }
       }
+    }
+
+    &__list-content-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
     }
 
     &__item-text-wrapper {
