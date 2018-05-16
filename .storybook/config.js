@@ -14,6 +14,7 @@ function loadStories() {
   // You can require as many stories as you need.
   require('../src/components/MyButton/MyButton.story');
   require('../src/components/Modal/Modal.story');
+  require('../src/components/CategoryList/CategoryList.story');
 }
 
 configure(loadStories, module);
