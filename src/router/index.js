@@ -7,7 +7,9 @@ import CategoryList from '@/components/CategoryList/CategoryList';
 
 import UserLandingPage from '@/pages/UserLandingPage';
 import MuscleGroupList from '@/pages/MuscleGroupList';
-import ExercisePage from '@/pages/ExercisePage';
+
+import ExerciseList from '@/pages/ExerciseList';
+import Exercise from '@/pages/Exercise';
 
 Vue.use(Router);
 
@@ -39,10 +41,17 @@ export default new Router({
       component: MuscleGroupList
     },
     {
+      path: '/exerciseList/:muscleGroupId',
+      name: 'ExerciseList',
+      component: ExerciseList,
+      props: route => ({muscleGroupId: route.params.muscleGroupId})
+    },
+    {
       path: '/exercise/:exerciseId',
-      name: 'Exercise',
-      component: ExercisePage,
+      name: 'ExercisePage',
+      component: Exercise,
       props: route => ({exerciseId: route.params.exerciseId})
-    }
+    },
+
   ],
 });

@@ -1,7 +1,7 @@
 <template>
   <ul class="category-list">
     <li class="category-list__list-item" v-for="category in categoryItems" v-bind:key="category.id"> 
-      <router-link class="category-list__list-content-wrapper" :to="`/exercise/${category.id}`" tag="div" >
+      <router-link class="category-list__list-content-wrapper" :to="category.linkTo" tag="div" >
         <div class="category-list__item-text-wrapper">
           {{category.name}}
         </div>

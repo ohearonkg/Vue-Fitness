@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h1> Muscle Group </h1>
-    <category-list :categoryItems="exercises" />
-  </div>
+  <category-list :categoryItems="muscleGroups" />
 </template>
 
 <script>
@@ -14,17 +11,20 @@ export default {
   },
   data: () => {
     return {
-      exercises: [
+      muscleGroups: [
         {
             name: 'Back',
+            linkTo: '/exerciseList/1',
             id: 1
         },
         {
             name: 'Chest',
+            linkTo: '/exerciseList/2',
             id: 2
         },
         {
             name: 'Legs',
+            linkTo: '/exerciseList/3',
             id: 3
         }
       ]
