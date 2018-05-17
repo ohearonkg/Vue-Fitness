@@ -4,8 +4,10 @@
       <!-- Header -->      
       <div class="app-shell__header-wrapper">
 
-        <!-- Icon -->
-        <div class="app-shell__icon-wrapper"> </div>
+        <!-- Back Button -->
+        <div v-if="this.$router.history.current.path != '/' && this.$router.history.current.path != '/user'" class="app-shell__back-icon-wrapper" v-on:click="handleBack"> 
+          Go Back
+        </div>
 
         <!-- Title -->
         <div class="app-shell__title-wrapper">VueFIT</div>
@@ -69,7 +71,10 @@ export default {
     Sidebar
   },
   methods: {
-    ...mapMutations(["toggleSidebar"])
+    ...mapMutations(["toggleSidebar"]),
+    handleBack: function() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>
@@ -101,8 +106,9 @@ body {
     align-items: center;
   }
 
-  &__icon-wrapper {
+  &__back-icon-wrapper {
     flex: 0 0 auto;
+    cursor: pointer;
   }
 
   &__title-wrapper {
