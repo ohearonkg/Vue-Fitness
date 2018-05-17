@@ -49,7 +49,6 @@ export default {
       font-family: "OpenSansSemiBold";
       margin: 0;
       padding: 10px 5px;
-      border-bottom: 2px solid white;
       cursor: pointer;
       transition: all 0.2s ease;
 
