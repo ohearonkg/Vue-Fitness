@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import CategoryList from "./CategoryList/CategoryList"
+import CategoryList from "../components/CategoryList/CategoryList"
 export default {
   name: "ExerciseListPage",
   components: {

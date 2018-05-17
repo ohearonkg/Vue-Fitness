@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import WorkoutPreview from "./WorkoutPreview";
+import WorkoutPreview from "../components/WorkoutPreview";
 export default {
   name: "GettingStarted",
   components: {

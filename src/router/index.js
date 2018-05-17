@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import GettingStarted from '@/components/GettingStarted';
-import UserLandingPage from '@/components/UserLandingPage';
 import Calandar from '@/components/Calandar';
 import Modal from '@/components/Modal/Modal';
 import CategoryList from '@/components/CategoryList/CategoryList';
-import ExerciseListPage from '@/components/ExerciseListPage';
-import ExercisePage from '@/components/ExercisePage';
+
+import UserLandingPage from '@/pages/UserLandingPage';
+import ExerciseListPage from '@/pages/ExerciseListPage';
+import ExercisePage from '@/pages/ExercisePage';
 
 Vue.use(Router);
 
