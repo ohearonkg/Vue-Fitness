@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1> List of exercises </h1>
+    <h1> Muscle Group </h1>
     <category-list :categoryItems="exercises" />
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 import CategoryList from "../components/CategoryList/CategoryList"
 export default {
-  name: "ExerciseListPage",
+  name: "MuscleGroupList",
   components: {
     CategoryList
   },
