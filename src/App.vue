@@ -59,7 +59,7 @@ export default {
         },
         {
           text: "Exercises",
-          location: "/exercises",
+          location: "/muscleGroupList",
           id: "4"
         }
       ]

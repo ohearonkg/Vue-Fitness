@@ -6,7 +6,7 @@ import Modal from '@/components/Modal/Modal';
 import CategoryList from '@/components/CategoryList/CategoryList';
 
 import UserLandingPage from '@/pages/UserLandingPage';
-import ExerciseListPage from '@/pages/ExerciseListPage';
+import MuscleGroupList from '@/pages/MuscleGroupList';
 import ExercisePage from '@/pages/ExercisePage';
 
 Vue.use(Router);
@@ -34,9 +34,9 @@ export default new Router({
       component: Modal,
     },
     {
-      path: '/exercises',
-      name: 'ExerciseListPage',
-      component: ExerciseListPage
+      path: '/muscleGroupList',
+      name: 'MuscleGroupList',
+      component: MuscleGroupList
     },
     {
       path: '/exercise/:exerciseId',
