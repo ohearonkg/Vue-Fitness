@@ -5,7 +5,9 @@
       <div class="app-shell__header-wrapper">
 
         <!-- Icon -->
-        <div class="app-shell__icon-wrapper"> </div>
+        <div class="app-shell__icon-wrapper">
+          <img src="./assets/logo.png" class="app-shell__icon-image" />
+        </div>
 
         <!-- Title -->
         <div class="app-shell__title-wrapper">VueFIT</div>
@@ -98,6 +100,12 @@ body {
 
   &__icon-wrapper {
     flex: 0 0 auto;
+  }
+
+  &__icon-image {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
   }
 
   &__title-wrapper {
