@@ -30,7 +30,9 @@
 
       <!-- Actual Content Rendered Via Router --> 
       <div class="app__content-container">
-        <router-view/>
+        <transition appear name="slide" mode="out-in">
+          <router-view/>
+        </transition>
       </div>
       
   </div>
@@ -43,6 +45,7 @@ export default {
   name: "App",
   data() {
     return {
+      transitionName: "slide-left",
       navigationItems: [
         {
           text: "Home",
@@ -75,11 +78,20 @@ export default {
     handleBack: function() {
       this.$router.go(-1);
     }
-  }
+  },
 };
 </script>
 
 <style lang="scss">
+.slide-enter-active, .slide-exit-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.slide-enter {
+  opacity: 0;
+  transform: translate(30px, 0);
+}
+
 body {
   margin: 0;
   width: 100%;
