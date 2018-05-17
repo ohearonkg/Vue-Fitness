@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import MyButton from "./MyButton";
+import MyButton from "./MyButton/MyButton";
 
 export default {
   name: "GettingStarted",
