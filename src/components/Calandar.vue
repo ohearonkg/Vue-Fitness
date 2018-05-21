@@ -58,31 +58,31 @@ export default {
     return {
       daysOfWeek: [
         {
-          name: "Sunday",
+          name: "Sun",
           key: 0
         },
         {
-          name: "Monday",
+          name: "Mon",
           key: 1
         },
         {
-          name: "Tuesday",
+          name: "Tue",
           key: 2
         },
         {
-          name: "Wednesday",
+          name: "Wed",
           key: 3
         },
         {
-          name: "Thrusday",
+          name: "Thu",
           key: 4
         },
         {
-          name: "Friday",
+          name: "Fri",
           key: 5
         },
         {
-          name: "Saturday",
+          name: "Sat",
           key: 6
         }
       ],

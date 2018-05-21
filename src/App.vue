@@ -4,8 +4,10 @@
       <!-- Header -->      
       <div class="app-shell__header-wrapper">
 
-        <!-- Icon -->
-        <div class="app-shell__icon-wrapper"> </div>
+        <!-- Back Button -->
+        <div v-if="this.$router.history.current.path != '/' && this.$router.history.current.path != '/user'" class="app-shell__back-icon-wrapper" v-on:click="handleBack"> 
+          Go Back
+        </div>
 
         <!-- Title -->
         <div class="app-shell__title-wrapper">VueFIT</div>
@@ -28,7 +30,9 @@
 
       <!-- Actual Content Rendered Via Router --> 
       <div class="app__content-container">
-        <router-view/>
+        <transition appear name="slide" mode="out-in">
+          <router-view/>
+        </transition>
       </div>
       
   </div>
@@ -41,6 +45,7 @@ export default {
   name: "App",
   data() {
     return {
+      transitionName: "slide-left",
       navigationItems: [
         {
           text: "Home",
@@ -56,6 +61,11 @@ export default {
           text: "Logout",
           location: "/",
           id: "3"
+        },
+        {
+          text: "Exercises",
+          location: "/muscleGroupList",
+          id: "4"
         }
       ]
     };
@@ -64,12 +74,30 @@ export default {
     Sidebar
   },
   methods: {
-    ...mapMutations(["toggleSidebar"])
-  }
+    ...mapMutations(["toggleSidebar"]),
+    handleBack: function() {
+      this.$router.go(-1);
+    }
+  },
 };
 </script>
 
 <style lang="scss">
+.slide-enter-active, .slide-leave-active {
+  transition: all 0.25s ease-in-out;
+}
+
+.slide-enter {
+  opacity: 0;
+  transform: translate(30px, 0);
+}
+
+.slide-leave-to {
+  transform: translate(-30px, 0);
+  opacity: 0;
+}
+
+
 body {
   margin: 0;
   width: 100%;
@@ -96,8 +124,9 @@ body {
     align-items: center;
   }
 
-  &__icon-wrapper {
+  &__back-icon-wrapper {
     flex: 0 0 auto;
+    cursor: pointer;
   }
 
   &__title-wrapper {
