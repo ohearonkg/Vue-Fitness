@@ -83,14 +83,20 @@ export default {
 </script>
 
 <style lang="scss">
-.slide-enter-active, .slide-exit-active {
-  transition: all 0.5s ease-in-out;
+.slide-enter-active, .slide-leave-active {
+  transition: all 0.25s ease-in-out;
 }
 
 .slide-enter {
   opacity: 0;
   transform: translate(30px, 0);
 }
+
+.slide-leave-to {
+  transform: translate(-30px, 0);
+  opacity: 0;
+}
+
 
 body {
   margin: 0;
