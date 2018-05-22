@@ -170,6 +170,9 @@ export default {
     border-right: none;
     font-size: 32px;
     text-align: center;
+    background: #eee;
+    border-bottom: 2px solid black;
+    width: 75%;
 
     &:focus {
       outline: none;
@@ -178,8 +181,7 @@ export default {
   }
 
   &__records-table {
-    width: calc(100% - 80px);
-    margin: 0 40px;
+    width: 100%;
     border-collapse: collapse;
     font-family: "OpenSans";
   }

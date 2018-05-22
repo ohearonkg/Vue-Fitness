@@ -1,13 +1,15 @@
 <template>
-  <div>
-    exercies Data for exercise with id {{exerciseId}}
-  </div>
+  <log-screen />
 </template>
 
 <script>
+import LogScreen from "../components/LogScreen/LogScreen";
 export default {
   name: "Exercise",
   props: ["exerciseId"],
+  components: {
+    LogScreen
+  }
 };
 </script>
 
