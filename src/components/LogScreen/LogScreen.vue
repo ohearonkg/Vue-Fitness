@@ -2,13 +2,13 @@
   <div class="log-screen">
 
     <!-- Weight Field -->
-    <h2> Weight </h2>
+    <h2 class="log-screen__input-title"> Weight </h2>
     <div class="log-screen__input-wrapper log-screen__input-wrapper--first">
       <input id="weightInput" type="text" class="log-screen__input">
     </div>
 
     <!-- Reps Field -->
-    <h2> Reps </h2>
+    <h2 class="log-screen__input-title"> Reps </h2>
     <div class="log-screen__input-wrapper">
       <input id="repsInput" type="number" class="log-screen__input">
     </div>
@@ -110,8 +110,28 @@ export default {
   transform: translatex(-30px);
 }
 
+@font-face {
+    font-family: "OpenSansBold";
+    src: url('../../assets/fonts/Open_Sans/OpenSans-Bold.ttf');
+    font-weight: 700;
+  }
+
+@font-face {
+    font-family: "OpenSans";
+    src: url('../../assets/fonts/Open_Sans/OpenSans-Regular.ttf');
+  }
+
+
 .log-screen {
   padding-top: 40px;
+
+  &__input-title {
+    font-family: "OpenSansBold";
+    border-bottom: 2px solid blue;
+    margin: 0;
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+  }
 
   &__buttons-wrapper {
     display: flex;
@@ -137,6 +157,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 80px;
 
     &--first {
       padding-bottom: 80px;
@@ -160,6 +181,7 @@ export default {
     width: calc(100% - 80px);
     margin: 0 40px;
     border-collapse: collapse;
+    font-family: "OpenSans";
   }
 
   &__record-row {
