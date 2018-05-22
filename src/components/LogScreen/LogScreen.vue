@@ -2,19 +2,21 @@
   <div class="log-screen">
 
     <!-- Weight Field -->
+    <h2> Weight </h2>
     <div class="log-screen__input-wrapper log-screen__input-wrapper--first">
-      <input type="text" class="log-screen__input">
+      <input id="weightInput" type="text" class="log-screen__input">
     </div>
 
     <!-- Reps Field -->
+    <h2> Reps </h2>
     <div class="log-screen__input-wrapper">
-      <input type="number" class="log-screen__input">
+      <input id="repsInput" type="number" class="log-screen__input">
     </div>
 
     <!-- Buttons -->
     <div class="log-screen__buttons-wrapper">
       <div class="log-screen__button-wrapper log-screen__button-wrapper--first">
-        <my-button success="true" text="LOG" />
+        <my-button success="true" text="LOG" v-bind:clickFunction="addRecord"/>
       </div>
 
       <div class="log-screen__button-wrapper log-screen__button-wrapper--last">
@@ -23,7 +25,7 @@
     </div>
 
     <!-- Entered Data -->
-    <table class="log-screen__records-table">
+    <transition-group tag="table" name="list" class="log-screen__records-table">
       <tr class="log-screen__record-row" v-for="(record,index) in this.recorded" v-bind:key="record.id">
         <td v-if="record.notes" class="log-screen__record-entry log-screen__record-entry--text-align-left"> 
           <svg class="log-screen__notes-icon log-screen__notes-icon--blue-fill" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +42,7 @@
         <td class="log-screen__record-entry"> {{ record.weight }} lbs</td>
         <td class="log-screen__record-entry"> {{ record.reps }} reps </td>
       </tr>
-    </table>
+    </transition-group>
 
   </div>
 </template>
@@ -74,12 +76,40 @@ export default {
         id: 3
       },
     ]
-  })
+  }),
+  methods: {
+    addRecord: function() {
+      const weightInput = document.getElementById('weightInput');
+      const repsInput = document.getElementById('repsInput');
+
+      console.log(weightInput.value === "");
+      /* Add a red bottom border informing the user that they
+      ** must enter a valid rep range
+      */
+      if (repsInput.value === "") {
+        repsInput.style.borderBottom = "1px solid red";
+      } else {
+        this.recorded.push({
+          reps: repsInput.value,
+          weight: weightInput.value === "" ? 0 : weightInput.value, // Add a zero for eight if required
+          id: this.recorded.length + 1
+        })
+      }
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translatex(-30px);
+}
+
 .log-screen {
   padding-top: 40px;
 

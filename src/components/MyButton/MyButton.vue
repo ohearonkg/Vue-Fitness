@@ -1,5 +1,5 @@
 <template>
-    <button class="button" v-bind:class="{'button--warning' : this.warning, 'button--danger' : this.danger, 'button--success': this.success}">
+    <button @click="this.clickFunction" class="button" v-bind:class="{'button--warning' : this.warning, 'button--danger' : this.danger, 'button--success': this.success}">
      {{text}} 
     </button>
 </template>
@@ -7,7 +7,7 @@
 <script>
 export default {
     name: "MyButton",
-    props: ["text", "warning", "danger", "success"]
+    props: ["text", "warning", "danger", "success", "clickFunction"]
 };
 </script>
 
